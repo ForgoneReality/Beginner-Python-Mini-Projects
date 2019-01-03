@@ -17,11 +17,21 @@ def is_prime():
     """
     Practicing helper functions, could have been done within one.
     """
-    num = int(input("Please enter in a positive integer"))
-    if primes(num):
-        print("This is a prime number")
-    else:
-        print("This number is not prime")
+    cont = "y"
+    while cont == "y" or cont == "Y":
+        try:
+            num = int(input("Please enter in a positive integer"))
+            if num<=0:
+                raise ValueError
+        except ValueError:
+            print("Input was not a positive integer")
+        else:
+            if primes(num):
+                print("This is a prime number")
+            else:
+                print("This number is not prime")
+        finally:
+            cont = input("Continue? (y/n)");
 
 is_prime()
 
